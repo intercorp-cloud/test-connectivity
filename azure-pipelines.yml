@@ -1,0 +1,52 @@
+name: ir-hr-cf-survey-process
+trigger:
+  branches:
+    include:
+      - main
+      - release
+      - develop
+    exclude:
+      - feature/*
+pool:
+  vmImage: 'ubuntu-latest'
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: "ir-hr-gdh-support-templates"
+      ref: node
+
+variables:
+  - group: common-survey-services-variables
+  - name: majorVersion
+    value: 1
+  - name: minorVersion
+    value: 0
+  - name: patchVersion
+    value: 0
+
+stages:
+  - stage: SCM
+    displayName: 'Source Code Management'
+    jobs:
+      - template: 'templates/node/stage_scm.yaml@templates'
+        parameters:
+          workingDirectory: ''
+          majorVersion: $(majorVersion)
+          minorVersion: $(minorVersion)
+          patchVersion: $(patchVersion)
+  - stage: Test
+    displayName: 'Runs Performance and E2E tests'
+    jobs:
+      - template: 'templates/node/stage_integration_test.yaml@templates'
+        parameters:
+          sandboxJar: 'application.jar'
+          postmanCollection: './src/test/resources/pm_collection.json'
+  - stage: DeployApplication
+    displayName: 'Delivery app'
+    jobs:
+      - template: 'templates/node/stage_deploy_typescript_application.yaml@templates'
+        parameters:
+          imageTag: '$(majorVersion).$(minorVersion).$(patchVersion)'
+          functionName: 'test-connectivity'
