@@ -8,6 +8,7 @@ app.use(express.urlencoded({extended:false}));
 
 
 app.get('/',(req,res)=>res.send('Hola Mundo'));
+app.get('/prueba',(req,res)=>res.send('Hola Mundo'));
 
 app.listen(app.get('port'),()=>{
     console.log('Servidor corriendo');
