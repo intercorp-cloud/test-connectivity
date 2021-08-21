@@ -1,0 +1,9 @@
+google-cloud-sdk*
+README.md
+azure-pipelines.yml
+.git*
+node_modules*
+.gitignore
+yarn.lock
+tsconfig.json
+jest.config.js
