@@ -1,4 +1,4 @@
-name: ir-hr-cf-survey-process
+name: test-connectivity
 trigger:
   branches:
     include:
@@ -48,5 +48,5 @@ stages:
     jobs:
       - template: 'templates/node/stage_deploy_typescript_application.yaml@templates'
         parameters:
-          imageTag: '$(majorVersion).$(minorVersion).$(patchVersion)'
+          versionParameter: '$(majorVersion).$(minorVersion).$(patchVersion)'
           functionName: 'test-connectivity'
