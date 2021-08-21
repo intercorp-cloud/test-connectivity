@@ -1,0 +1,19 @@
+{
+  "name": "test-connectivity",
+  "version": "1.0.0",
+  "description": "test de conectividad",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intercorp-cloud/test-connectivity.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/intercorp-cloud/test-connectivity/issues"
+  },
+  "homepage": "https://github.com/intercorp-cloud/test-connectivity#readme"
+}
