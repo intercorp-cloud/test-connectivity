@@ -1,0 +1,28 @@
+{
+  "name": "test-connectivity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "express": "^4.17.1",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+   "clean": "rm -rf build",
+   "build": "tsc",
+   "start": " node build/src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intercorp-cloud/test-connectivity.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/intercorp-cloud/test-connectivity/issues"
+  },
+  "homepage": "https://github.com/intercorp-cloud/test-connectivity#readme"
+}
